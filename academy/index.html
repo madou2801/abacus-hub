@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABACUS Academy — Recevoir plus d'informations</title>
+<meta name="description" content="ABACUS Academy offre gratuitement son evaluation de competences aux etudiants. Remplissez ce formulaire pour en savoir plus.">
+<meta property="og:title" content="ABACUS Academy — Evaluation de competences gratuite">
+<meta property="og:description" content="Faites le point sur les competences de vos etudiants. Evaluation gratuite ABACUS Academy.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://abacus-rh.com/academy">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://abacus-rh.com/academy">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>A</text></svg>">
+<style>
+  :root{
+    --ground:#FAF6EE; --panel:#FFFFFF; --ink:#0E2033; --ink-soft:#42566A;
+    --muted:#5B6B78; --line:#E5DDCC; --accent:#C8912B; --accent-ink:#0E2033;
+    --green:#2F7D6B; --field:#FFFFFF; --field-line:#D9CFBB; --shadow:22 40 60;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ground:#0B1826; --panel:#0F2135; --ink:#F2ECDD; --ink-soft:#BFCAD4;
+      --muted:#8DA0AF; --line:#1E3346; --accent:#E7B54B; --accent-ink:#0B1826;
+      --green:#5FB39C; --field:#12283D; --field-line:#294056; --shadow:0 0 0;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0B1826; --panel:#0F2135; --ink:#F2ECDD; --ink-soft:#BFCAD4;
+    --muted:#8DA0AF; --line:#1E3346; --accent:#E7B54B; --accent-ink:#0B1826;
+    --green:#5FB39C; --field:#12283D; --field-line:#294056; --shadow:0 0 0;
+  }
+  :root[data-theme="light"]{
+    --ground:#FAF6EE; --panel:#FFFFFF; --ink:#0E2033; --ink-soft:#42566A;
+    --muted:#5B6B78; --line:#E5DDCC; --accent:#C8912B; --accent-ink:#0E2033;
+    --green:#2F7D6B; --field:#FFFFFF; --field-line:#D9CFBB; --shadow:22 40 60;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .serif{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif}
+  .stage{position:relative;min-height:100dvh;display:grid;grid-template-rows:auto 1fr auto}
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:20px 28px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:600;letter-spacing:.02em}
+  .mark{width:30px;height:30px;border-radius:8px;background:
+     linear-gradient(135deg,var(--accent),var(--green));display:grid;place-items:center;
+     color:var(--accent-ink);font-weight:800;font-family:var(--serif);font-size:16px}
+  .brand small{display:block;font-weight:500;color:var(--muted);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+  .themetog{border:1px solid var(--line);background:transparent;color:var(--ink-soft);
+     border-radius:999px;padding:7px 12px;font-size:12.5px;cursor:pointer}
+  .themetog:hover{border-color:var(--accent)}
+  .wrap{display:grid;place-items:center;padding:12px 24px 24px}
+  .card{width:min(680px,100%);opacity:0;transform:translateY(14px);
+     transition:opacity .5s ease,transform .5s ease}
+  .card.on{opacity:1;transform:none}
+  .qnum{display:inline-flex;align-items:center;gap:7px;color:var(--accent);
+     font-size:13px;font-weight:600;letter-spacing:.04em;margin-bottom:14px}
+  .qnum svg{width:13px;height:13px}
+  h1.q{font-size:clamp(1.5rem,3.4vw,2.35rem);line-height:1.16;margin:0 0 10px;
+     font-weight:600;text-wrap:balance;letter-spacing:-.01em}
+  .help{color:var(--muted);font-size:15px;margin:0 0 26px;max-width:52ch}
+  .field{width:100%;background:var(--field);border:1.5px solid var(--field-line);
+     border-radius:12px;padding:16px 18px;font-size:18px;color:var(--ink);
+     font-family:inherit;transition:border-color .2s,box-shadow .2s}
+  .field::placeholder{color:var(--muted);opacity:.7}
+  .field:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+  textarea.field{min-height:120px;resize:vertical}
+  .choices{display:flex;flex-direction:column;gap:11px}
+  .choice{display:flex;align-items:center;gap:13px;width:100%;text-align:left;
+     background:var(--field);border:1.5px solid var(--field-line);border-radius:12px;
+     padding:15px 17px;font-size:16.5px;color:var(--ink);cursor:pointer;font-family:inherit;
+     transition:border-color .18s,background .18s,transform .06s}
+  .choice:hover{border-color:var(--accent)}
+  .choice:active{transform:translateY(1px)}
+  .choice.sel{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--field))}
+  .key{width:26px;height:26px;flex:none;border:1.4px solid var(--field-line);border-radius:6px;
+     display:grid;place-items:center;font-size:12.5px;font-weight:700;color:var(--ink-soft)}
+  .choice.sel .key{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+  .row{display:flex;align-items:center;gap:14px;margin-top:26px;flex-wrap:wrap}
+  .ok{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:var(--accent-ink);
+     border:none;border-radius:11px;padding:13px 22px;font-size:16px;font-weight:650;cursor:pointer;
+     font-family:inherit;box-shadow:0 8px 22px -12px rgb(var(--shadow) / .5)}
+  .ok:hover{filter:brightness(1.04)}
+  .ok:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+  .hint{color:var(--muted);font-size:13px}
+  .hint b{color:var(--ink-soft);font-weight:600}
+  .lead{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:16px}
+  .big{font-size:clamp(2rem,5vw,3.1rem);line-height:1.08;margin:0 0 16px;font-weight:600;text-wrap:balance;letter-spacing:-.015em}
+  .sub{color:var(--ink-soft);font-size:17px;line-height:1.55;max-width:46ch;margin:0 0 30px}
+  .ghost{background:transparent;border:1.5px solid var(--field-line);color:var(--ink);
+     border-radius:11px;padding:13px 20px;font-size:15.5px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center}
+  .ghost:hover{border-color:var(--green)}
+  .status{font-size:13px;color:var(--muted);margin-top:14px;min-height:18px}
+  .status.err{color:#c0392b}
+  .foot{padding:0 0 0;}
+  .prog{height:5px;background:var(--line)}
+  .prog > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--accent));
+     transition:width .5s ease}
+  .footrow{display:flex;justify-content:space-between;align-items:center;padding:11px 28px;color:var(--muted);font-size:12.5px}
+  .navmini{display:flex;gap:6px}
+  .navmini button{border:1px solid var(--line);background:transparent;color:var(--ink-soft);
+     width:30px;height:26px;border-radius:7px;cursor:pointer;font-size:13px}
+  .navmini button:hover:not(:disabled){border-color:var(--accent)}
+  .navmini button:disabled{opacity:.35;cursor:default}
+  .check{width:60px;height:60px;border-radius:50%;background:color-mix(in srgb,var(--green) 16%,transparent);
+     display:grid;place-items:center;margin-bottom:22px}
+  .check svg{width:30px;height:30px;stroke:var(--green)}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="bar">
+    <div class="brand">
+      <span class="mark serif">A</span>
+      <span>ABACUS Academy<small>Évaluation de compétences</small></span>
+    </div>
+    <button class="themetog" id="tog" type="button">◐ Thème</button>
+  </div>
+
+  <div class="wrap"><div class="card on" id="card"></div></div>
+
+  <div class="foot">
+    <div class="prog"><i id="bar"></i></div>
+    <div class="footrow">
+      <span id="count">Introduction</span>
+      <div class="navmini">
+        <button id="prev" type="button" title="Précédent" disabled>↑</button>
+        <button id="next" type="button" title="Suivant">↓</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const CALENDAR_URL = "https://calendar.app.google/CcReJ3QEBm3Fveyc9/";
+const API_URL = "/api/academy";
+
+const steps = [
+  {type:"intro"},
+  {id:"etablissement", type:"text", q:"Quel est le nom de votre établissement ?", help:"Université, grande école, institut supérieur…", ph:"Ex. Institut Supérieur de Management", required:true},
+  {id:"contact", type:"text", q:"Qui êtes-vous ?", help:"Votre nom et votre fonction.", ph:"Ex. Awa Traoré — Directrice des études", required:true},
+  {id:"email", type:"email", q:"Votre email professionnel ?", help:"Nous y enverrons les informations et le récapitulatif.", ph:"prenom.nom@etablissement.edu", required:true},
+  {id:"tel", type:"text", q:"Un numéro pour vous joindre ?", help:"Téléphone ou WhatsApp — facultatif.", ph:"+xxx …", required:false},
+  {id:"pays", type:"text", q:"Dans quel pays êtes-vous ?", help:"", ph:"Ex. Sénégal", required:true},
+  {id:"effectif", type:"choice", q:"Combien d'étudiants accueillez-vous ?", help:"Une estimation suffit.", required:true,
+    options:["Moins de 500","500 à 2 000","2 000 à 5 000","Plus de 5 000"]},
+  {id:"interet", type:"choice", q:"Qu'est-ce qui vous intéresse le plus ?", help:"", required:true,
+    other:"Autre / à préciser",
+    options:["Offrir l'évaluation gratuite à nos étudiants","Un partenariat plus large","Une démonstration en direct","Autre / à préciser"]},
+  {id:"message", type:"textarea", q:"Une question ou un contexte à partager ?", help:"Facultatif — dites-nous ce qui compte pour vous.", ph:"Votre message…", required:false},
+  {type:"end"}
+];
+
+let i = 0;
+let submitState = "idle"; // idle | sending | ok | error
+const answers = {};
+const card = document.getElementById('card');
+const barI = document.getElementById('bar');
+const count = document.getElementById('count');
+const prevB = document.getElementById('prev');
+const nextB = document.getElementById('next');
+const qCount = steps.filter(s=>s.q).length;
+
+function esc(s){return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+
+function buildPayload(){
+  return {
+    etablissement: answers.etablissement || null,
+    contact_nom:   answers.contact || null,
+    email:         answers.email || null,
+    telephone:     answers.tel || null,
+    pays:          answers.pays || null,
+    effectif:      answers.effectif || null,
+    interet:       answers.interet || null,
+    interet_autre: answers.interet_autre || null,
+    message:       answers.message || null,
+    source:        "form_web"
+  };
+}
+
+async function submit(){
+  if(submitState==="sending" || submitState==="ok") return;
+  submitState = "sending";
+  updateStatus();
+  try{
+    const r = await fetch(API_URL, {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify(buildPayload())
+    });
+    submitState = r.ok ? "ok" : "error";
+  }catch(e){
+    submitState = "error";
+  }
+  updateStatus();
+}
+
+function updateStatus(){
+  const el = document.getElementById('status');
+  if(!el) return;
+  el.classList.remove('err');
+  if(submitState==="sending") el.textContent = "Envoi en cours…";
+  else if(submitState==="ok") el.textContent = "Vos réponses ont bien été enregistrées.";
+  else if(submitState==="error"){ el.textContent = "Un souci réseau est survenu. Vous pouvez tout de même réserver un échange ci-dessous."; el.classList.add('err'); }
+  else el.textContent = "";
+}
+
+function render(){
+  const s = steps[i];
+  card.classList.remove('on');
+  barI.style.width = (i/(steps.length-1)*100)+"%";
+  prevB.disabled = i===0;
+  nextB.disabled = i===steps.length-1;
+
+  let html = "";
+  if(s.type==="intro"){
+    count.textContent = "Introduction";
+    html = `<p class="lead">Pour vos étudiants — sans frais</p>
+      <h1 class="big serif">Faites le point sur les compétences de vos étudiants.</h1>
+      <p class="sub">ABACUS Academy offre gratuitement son évaluation de niveau à vos étudiants — un diagnostic clair de leurs compétences (soft skills, numérique, gestion, entrepreneuriat). Remplissez ce petit formulaire pour qu'on prépare un échange utile.</p>
+      <div class="row"><button class="ok" id="go">Commencer <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <span class="hint">≈ 1 minute · <b>Entrée ↵</b> pour valider</span></div>`;
+  } else if(s.type==="end"){
+    count.textContent = "Terminé";
+    html = `<div class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></div>
+      <h1 class="big serif">Merci, c'est noté.</h1>
+      <p class="sub">Nous revenons vers vous sous 48 h avec les détails de l'évaluation gratuite pour vos étudiants. Vous préférez en parler de vive voix ?</p>
+      <div class="row"><a class="ok" id="book" href="${CALENDAR_URL}" target="_blank" rel="noopener">Réserver 30 min d'échange</a>
+      <button class="ghost" id="restart" type="button">Renvoyer une réponse</button></div>
+      <p class="status" id="status"></p>`;
+  } else {
+    const n = steps.slice(0,i).filter(x=>x.q).length + 1;
+    count.textContent = `Question ${n} / ${qCount}`;
+    html = `<div class="qnum"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M13 6l6 6-6 6M5 12h14"/></svg> ${n} → </div>
+      <h1 class="q serif">${esc(s.q)}</h1>${s.help?`<p class="help">${esc(s.help)}</p>`:""}`;
+    if(s.type==="choice"){
+      html += `<div class="choices">`+ s.options.map((o,k)=>{
+        const sel = answers[s.id]===o ? " sel":"";
+        return `<button type="button" class="choice${sel}" data-v="${esc(o)}"><span class="key">${String.fromCharCode(65+k)}</span>${esc(o)}</button>`;
+      }).join("") + `</div>`;
+      if(s.other && answers[s.id]===s.other){
+        html += `<input class="field" id="otherin" style="margin-top:12px" placeholder="Précisez votre besoin…">`;
+      }
+      html += `<div class="row"><button class="ok" id="ok" ${answers[s.id]?"":"disabled"}>OK <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></button><span class="hint"><b>A–D</b> ou clic</span></div>`;
+    } else {
+      const tag = s.type==="textarea" ? "textarea" : "input";
+      const typeAttr = s.type==="email" ? ' type="email"' : ' type="text"';
+      html += `<${tag} class="field" id="in"${tag==="input"?typeAttr:""} placeholder="${esc(s.ph||"")}">${tag==="textarea"?esc(answers[s.id]||""):""}</${tag}>`;
+      if(tag==="input") setTimeout(()=>{const el=document.getElementById('in'); if(el) el.value=answers[s.id]||"";},0);
+      html += `<div class="row"><button class="ok" id="ok">OK <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></button><span class="hint">${s.required?"":"Facultatif · "}<b>Entrée ↵</b></span></div>`;
+    }
+  }
+  card.innerHTML = html;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>card.classList.add('on')));
+  wire(s);
+  if(s.type==="end"){ updateStatus(); submit(); }
+}
+
+function wire(s){
+  const go = document.getElementById('go'); if(go) go.onclick = advance;
+  const restart = document.getElementById('restart'); if(restart) restart.onclick = ()=>{i=0;submitState="idle";for(const k in answers)delete answers[k];render();};
+  const inp = document.getElementById('in');
+  if(inp){
+    inp.focus();
+    inp.oninput = ()=>{answers[s.id]=inp.value.trim();};
+    inp.onkeydown = e=>{ if(e.key==="Enter" && (s.type!=="textarea" || e.metaKey||e.ctrlKey)){e.preventDefault();advance();} };
+  }
+  card.querySelectorAll('.choice').forEach(b=>{
+    b.onclick = ()=>{ answers[s.id]=b.dataset.v; render(); };
+  });
+  const otherin = document.getElementById('otherin');
+  if(otherin){
+    otherin.value = answers[s.id+"_autre"]||"";
+    otherin.focus();
+    otherin.oninput = ()=>{ answers[s.id+"_autre"]=otherin.value.trim(); };
+    otherin.onkeydown = e=>{ if(e.key==="Enter"){e.preventDefault();advance();} };
+  }
+  const ok = document.getElementById('ok'); if(ok) ok.onclick = advance;
+}
+
+function valid(s){
+  if(!s || !s.q || !s.required) return true;
+  const v = answers[s.id];
+  if(!v) return false;
+  if(s.type==="email") return /.+@.+\..+/.test(v);
+  return true;
+}
+function advance(){
+  const s = steps[i];
+  if(s.q && !valid(s)){
+    const el = document.getElementById('in'); if(el){el.style.borderColor="#c0392b"; el.focus();}
+    return;
+  }
+  if(i < steps.length-1){ i++; render(); }
+}
+prevB.onclick = ()=>{ if(i>0){i--;render();} };
+nextB.onclick = advance;
+document.addEventListener('keydown', e=>{
+  const s = steps[i];
+  if(s && s.type==="choice" && /^[a-dA-D]$/.test(e.key)){
+    const idx = e.key.toLowerCase().charCodeAt(0)-97;
+    if(s.options[idx]){ answers[s.id]=s.options[idx]; render(); }
+  }
+});
+
+const root = document.documentElement;
+document.getElementById('tog').onclick = ()=>{
+  const cur = root.getAttribute('data-theme')
+    || (matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  root.setAttribute('data-theme', cur==='dark'?'light':'dark');
+};
+render();
+</script>
+</body>
+</html>
